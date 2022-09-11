@@ -3,8 +3,10 @@
 read -p "Enter the name of the virtual environment: " name
 
 echo "Creating Virtual Environment"
+python3 -m pip install --user virtualenv
 python3 -m venv $name
 
+#Functions
 git () {
     touch .gitignore 
     echo $name/ >> .gitignore 
@@ -16,7 +18,7 @@ while true; do
     case $yn in 
         [Yy]*) git  ; 
             break;;
-        [Nn]* ) echo "You chose not to create a .gitignore" ;
+        [Nn]*) echo "You chose not to create a .gitignore" ;
             break;;
     * ) echo "Please answer yes or no.";;
     esac
