@@ -2,8 +2,10 @@
 
 read -p "Enter the name of the virtual environment: " name
 
-echo "Creating Virtual Environment"
-python3 -m pip install --user virtualenv
+echo "Installing Virtual Env"
+python3 -m pip install --user virtualenv -q
+
+echo "Creating the Virtual Env"
 python3 -m venv $name
 
 #Functions
