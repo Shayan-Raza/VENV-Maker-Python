@@ -38,7 +38,7 @@ while true; do
         echo 
         echo "1) Data Science"
         echo "2) Web Development"   
-        echo "3) Game Devlopment"
+        echo "3) Game Development"
         echo
 
         #Running Configs
