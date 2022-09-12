@@ -14,14 +14,43 @@ git () {
     echo $name/ >> .gitignore 
 }
 
+activate () { 
+    source $name/bin/activate
+}
+
 #gitignore
 while true; do 
     read -p "Create a .gitignore[Y/n]: " yn
     case $yn in 
-        [Yy]*) git  ; 
+        [Yy]*) git ; 
             break;;
+        
         [Nn]*) echo "You chose not to create a .gitignore" ;
             break;;
     * ) echo "Please answer yes or no.";;
     esac
+done
+
+#Activating and running premade configs
+while true; do 
+    read -p "Activate Environment and use post install configs[Y/n]: " yn 
+    case $yn in 
+        [Yy]*) activate ;
+        
+        #List of configs 
+        echo 
+        echo "1) Data Science"
+        echo
+
+        #Running Configs
+        read -p "Choose config for install: " n
+            case $n in 
+                1) pip install -r configs/datascience.txt                 
+            esac 
+            break;;
+
+        [Nn]*) echo "You chose not to use post install configs" ; 
+            break;;
+        *) echo "Please answer yes or no."
+    esac     
 done
