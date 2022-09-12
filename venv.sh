@@ -32,7 +32,7 @@ done
 while true; do 
     read -p "Activate Environment and use post install configs[Y/n]: " yn 
     case $yn in 
-        [Yy]*) source $name/bin/activate ;;
+        [Yy]*) source $name/bin/activate ;
         
         #List of configs 
         echo 
@@ -44,7 +44,7 @@ while true; do
         read -p "Choose config for install[1-2]: " n
             case $n in 
                 1) pip install -r configs/datascience.txt ;;                
-                2) pip install -r configs/webdev.txt -q ;;
+                2) pip install -r configs/webdev.txt -q ;
             esac 
             break;;
 
@@ -53,3 +53,5 @@ while true; do
         *) echo "Please answer yes or no."
     esac     
 done
+
+echo "All Done Exiting"
