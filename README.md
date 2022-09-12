@@ -14,9 +14,5 @@ cd VENV-Maker-Python
 chmod +x venv.sh
 ```
 ```
-./venv.sh
-```
-Activating the Virtual Environment
-```
-source <<venc_name>>/bin/activate
+source venv.sh
 ```
