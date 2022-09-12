@@ -3,7 +3,7 @@
     - [Linux](#linux)
 
 ## Installation
-### Linux
+## Linux
 ```
 git clone git@github.com:Shayan-Raza/VENV-Maker-Python.git
 ```
@@ -15,4 +15,8 @@ chmod +x venv.sh
 ```
 ```
 ./venv.sh
+```
+Activating the Virtual Environment
+```
+source <<venc_name>>/bin/activate
 ```
