@@ -37,14 +37,16 @@ while true; do
         #List of configs 
         echo 
         echo "1) Data Science"
-        echo "2) Web Development"
+        echo "2) Web Development"   
+        echo "3) Game Devlopment"
         echo
 
         #Running Configs
-        read -p "Choose config for install[1-2]: " n
+        read -p "Choose config for install[1-3]: " n
             case $n in 
                 1) pip install -r configs/datascience.txt ;;                
-                2) pip install -r configs/webdev.txt -q ;
+                2) pip install -r configs/webdev.txt -q ;;
+                3) pip install -r configs/gamedev.txt -q ;
             esac 
             break;;
 
