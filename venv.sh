@@ -12,6 +12,7 @@ python3 -m venv $name
 git () {
     touch .gitignore 
     echo $name/ >> .gitignore 
+    echo venv.sh >> .gitignore
 }
 
 activate () { 
@@ -40,12 +41,14 @@ while true; do
         #List of configs 
         echo 
         echo "1) Data Science"
+        echo "2) Web Development"
         echo
 
         #Running Configs
-        read -p "Choose config for install: " n
+        read -p "Choose config for install[1-2]: " n
             case $n in 
-                1) pip install -r configs/datascience.txt                 
+                1) pip install -r configs/datascience.txt ;;                
+                2) pip install -r configs/webdev.txt ;;
             esac 
             break;;
 
