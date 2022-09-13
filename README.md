@@ -5,7 +5,7 @@
 ## Installation
 ## Linux
 ```
-git clone git@github.com:Shayan-Raza/VENV-Maker-Python.git
+git clone https://github.com/Shayan-Raza/VENV-Maker-Python.git
 ```
 ```
 cd VENV-Maker-Python
