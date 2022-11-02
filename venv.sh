@@ -1,41 +1,27 @@
 #! /bin/bash
 
-read -p "Enter the name of the virtual environment: " name
+echo "Shayan's Python VENV Maker"
+echo 
+echo "1) Create a VENV"
+echo "2) Use post create configs"
+echo "3) Create a .gitignore file"
+echo 
 
-echo "Installing Virtual Env"
-python3 -m pip install --user virtualenv -q
+#Functions 
+venv () {
+    read -p "Enter the name of the virtual environment: " name
 
-echo "Creating the Virtual Env"
-python3 -m venv $name
+    echo "Installing Virtual Env"
+    python3 -m pip install --user virtualenv -q
 
-#Functions
-gitignore () {
-    touch .gitignore 
-    echo $name/ >> .gitignore 
-    echo venv.sh >> .gitignore
+    echo "Creating the Virtual Env"
+    python3 -m venv $name
 }
 
-#gitignore
-while true; do 
-    read -p "Create a .gitignore[Y/n]: " yn
-    case $yn in 
-        [Yy]*) gitignore ; 
-            break;;
-        
-        [Nn]*) echo "You chose not to create a .gitignore" ;
-            break;;
-    * ) echo "Please answer yes or no.";;
-    esac
-done
-
-#Activating and running premade configs
-while true; do 
-    read -p "Activate Environment and use post install configs[Y/n]: " yn 
-    case $yn in 
-        [Yy]*) source $name/bin/activate ;
-        
+configs () { 
         #List of configs 
         echo 
+        echo "Configs"
         echo "1) Data Science"
         echo "2) Web Development"   
         echo "3) Game Development"
@@ -46,14 +32,26 @@ while true; do
             case $n in 
                 1) pip install -r configs/datascience.txt ;;                
                 2) pip install -r configs/webdev.txt -q ;;
-                3) pip install -r configs/gamedev.txt -q ;
+                3) pip install -r configs/gamedev.txt -q ;;
             esac 
-            break;;
+}
 
-        [Nn]*) echo "You chose not to use post install configs" ; 
-            break;;
-        *) echo "Please answer yes or no."
-    esac     
-done
+gitignore () {
+    echo "Git ignoring the virtual environment and script"
+    touch .gitignore 
+    echo $name/ >> .gitignore 
+    echo venv.sh >> .gitignore
+}
 
-echo "All Done Exiting"
+#Running the functions based on user input
+while true; do 
+    read -p "Choose an option from above [1-3]: " option 
+    case $option in 
+        1) venv ; 
+            break ;; 
+        2) configs ; 
+            break ;;
+        3) gitignore ; 
+            break ;; 
+    esac 
+done 
