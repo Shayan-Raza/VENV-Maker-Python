@@ -2,9 +2,10 @@
 
 echo "Shayan's Python VENV Maker"
 echo 
-echo "1) Create a VENV"
-echo "2) Use post create configs"
-echo "3) Create a .gitignore file"
+echo "1) Create a VENV (in the current directory)"
+echo "2) Use post create configs (datascience, webdev and gamedev)"
+echo "3) Create a .gitignore file (ignore the VENV and the script)"
+echo "4) Create a requirements.txt for your project"
 echo 
 
 #Functions 
@@ -43,6 +44,14 @@ gitignore () {
     echo venv.sh >> .gitignore
 }
 
+requirements () { 
+    echo "Installing the pip reqs module"
+    pip3 install pipreqs
+
+    echo "Creating requirements.txt"
+    pipreqs ./
+}
+
 #Running the functions based on user input
 while true; do 
     read -p "Choose an option from above [1-3]: " option 
@@ -52,6 +61,8 @@ while true; do
         2) configs ; 
             break ;;
         3) gitignore ; 
+            break ;; 
+        4) requirements ; 
             break ;; 
     esac 
 done 
