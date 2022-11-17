@@ -54,7 +54,7 @@ requirements () {
 
 #Running the functions based on user input
 while true; do 
-    read -p "Choose an option from above [1-3]: " option 
+    read -p "Choose an option from above [1-4]: " option 
     case $option in 
         1) venv ; 
             break ;; 
