@@ -40,6 +40,7 @@ configs () {
 gitignore () {
     echo "Git ignoring the virtual environment and script"
     touch .gitignore 
+    read -p "Enter the name of the virtual environment: " name
     echo $name/ >> .gitignore 
     echo venv.sh >> .gitignore
 }
